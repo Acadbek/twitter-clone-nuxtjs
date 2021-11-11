@@ -241,7 +241,7 @@
         <div class="p-3">
           <p class="text-lg font-bold">Who to Follow</p>
         </div>
-        <button
+        <button v-for="friend in friends" :key="friend"
           class="
             w-full
             flex
@@ -251,16 +251,16 @@
           "
         >
           <img
-            src="../static/img/profile.png"
+            :src="`${friend.src}`"
             alt=""
-            class="w-10 h-10 rounded-full border border-[#E1E8ED] object-cover"
+            class="w-12 h-12 rounded-full border border-[#E1E8ED] object-cover"
           />
           <div class="hidden lg:block ml-4">
-            <p class="text-sm font-bold leading-tight">Asadbek</p>
-            <p class="text-sm leading-tight">@a.nosirjonov</p>
+            <p class="text-sm font-bold leading-tight">{{friend.name}}</p>
+            <p class="text-sm leading-tight">{{friend.handle}}</p>
           </div>
-            <button class="text-sm text-[#1DA1F2]">
-
+            <button class="ml-auto text-sm text-[#1DA1F2] py-1 px-4 rounded-full border-2 border-[#1DA1F2]">
+              Follow
             </button>
         </button>
         <button
@@ -304,6 +304,11 @@ export default {
         { top: 'Trending in US', title: 'Denim day', bottom: '40k Tweets' },
         { top: 'Trending', title: 'When Beyonce', bottom: '25.4k Tweets' },
       ],
+      friends: [
+        {src: '../static/img/profile.png', name: 'Elon Musk', handle: '@teslaBoy'},
+        {src: '../static/img/profile.png', name: 'Adrian Monk', handle: '@detective'},
+        {src: '../static/img/profile.png', name: 'Kevin Hart', handle: '@miniRock'},
+      ]
     }
   },
 }
