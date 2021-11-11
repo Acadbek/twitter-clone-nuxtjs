@@ -167,11 +167,104 @@
     </div>
     <!-- /Side nav -->
     <!-- Tweets -->
-    <div class="w-1/2 h-full"></div>
+    <div class="w-1/2 h-full overflow-y-scroll">
+      <div
+        class="
+          px-5
+          py-3
+          border-b border-[#E1E8ED]
+          flex
+          items-center
+          justify-between
+        "
+      >
+        <h1 class="text-xl font-bold">Home</h1>
+        <i class="far fa-star text-xl text-[#1DA1F2]"></i>
+      </div>
+      <div class="px-5 py-3 border-b-8 border-[#E1E8ED] flex">
+        <div>
+          <img
+            src="../static/img/profile.png"
+            class="w-12 h-12 rounded-full border border-[#E1E8ED] object-cover"
+          />
+        </div>
+        <form class="w-full px-4 relative">
+          <textarea
+            placeholder="What`s up?"
+            class="w-full focus:outline-none mt-3 pb-3"
+          ></textarea>
+          <div class="flex items-center">
+            <i class="text-lg text-[#1DA1F2] mr-4 far fa-image"></i>
+            <i class="text-lg text-[#1DA1F2] mr-4 fas fa-film"></i>
+            <i class="text-lg text-[#1DA1F2] mr-4 far fa-chart-bar"></i>
+            <i class="text-lg text-[#1DA1F2] mr-4 far fa-smile"></i>
+          </div>
+          <button
+            class="
+              h-10
+              px-4
+              text-white
+              font-white font-semibold
+              bg-[#1DA1F2]
+              hover:bg-[#2795D9]
+              focus:outline-none
+              rounded-full
+              absolute
+              bottom-0
+              right-0
+            "
+          >
+            Tweet
+          </button>
+        </form>
+      </div>
+      <div
+        v-for="follow in following"
+        :key="follow"
+        class="w-full p-4 border-b hover:bg-[#E1E8ED] flex"
+      >
+        <div class="flex-none mr-4">
+          <img
+            :src="`${follow.src}`"
+            class="h-12 w-12 rounded-full flex-none"
+          />
+        </div>
+        <div class="w-full">
+          <div class="flex items-center w-full">
+            <p class="font-semibold">{{ follow.name }}</p>
+            <p class="text-sm text-[#657786] ml-2">{{ follow.handle }}</p>
+            <p class="text-sm text-[#657786] ml-2">{{ follow.time }}</p>
+            <i class="fas fa-angle-down text-[#657786] ml-auto"></i>
+          </div>
+          <p class="py-2">
+            {{ follow.tweet }}
+          </p>
+          <div class="flex items-center justify-between w-full">
+            <div class="flex items-center text-sm text-[#657786]">
+              <i class="far fa-comment mr-3"></i>
+              <p>{{ follow.comments }}</p>
+            </div>
+            <div class="flex items-center text-sm text-[#657786]">
+              <i class="fas fa-retweet mr-3"></i>
+              <p>{{ follow.retweets }}</p>
+            </div>
+            <div class="flex items-center text-sm text-[#657786]">
+              <i class="fas fa-heart mr-3"></i>
+              <p>{{ follow.like }}</p>
+            </div>
+            <div class="flex items-center text-sm text-[#657786]">
+              <i class="fas fa-share-square mr-3"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- /Tweets -->
     <!-- Trending -->
     <div
       class="
+        md:block
+        hidden
         w-1/3
         h-full
         border-l border-[#E1E8ED]
@@ -311,7 +404,7 @@ export default {
       ],
       friends: [
         {
-          src: './static/img/profile.png',
+          src: '../static/img/profile.png',
           name: 'Elon Musk',
           handle: '@teslaBoy',
         },
@@ -324,6 +417,48 @@ export default {
           src: '../static/img/profile.png',
           name: 'Kevin Hart',
           handle: '@miniRock',
+        },
+      ],
+      following: [
+        {
+          src: '../static/img/profile.png',
+          name: 'Kevin Hart',
+          handle: '@miniRock',
+          time: '2 hr',
+          tweet: 'Should me and the rock do another sub-par movie together????',
+          comments: '50',
+          retweets: '1203',
+          like: '1,329.332',
+        },
+        {
+          src: '../static/img/profile.png',
+          name: 'Ilon Mask',
+          handle: '@miniRock',
+          time: '55 min',
+          tweet: 'Just did something crazyyyyyy',
+          comments: '1,000',
+          retweets: '500',
+          like: '1,000,003',
+        },
+        {
+          src: '../static/img/profile.png',
+          name: 'Betmen',
+          handle: '@miniRock',
+          time: '20 min',
+          tweet: 'Should I just quarantine on mars??',
+          comments: '1,340',
+          retweets: '5,300',
+          like: '5,000,003',
+        },
+        {
+          src: '../static/img/profile.png',
+          name: 'Thor',
+          handle: '@miniRock',
+          time: '39 min',
+          tweet: 'Should I just quarantine on mars??',
+          comments: '1,000',
+          retweets: '500',
+          like: '1,000,003',
         },
       ],
     }
