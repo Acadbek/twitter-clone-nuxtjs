@@ -188,8 +188,9 @@
             class="w-12 h-12 rounded-full border border-[#E1E8ED] object-cover"
           />
         </div>
-        <form class="w-full px-4 relative">
+        <form @submit.prevent="addNewTweet" class="w-full px-4 relative">
           <textarea
+            v-model="tweet.content"
             placeholder="What`s up?"
             class="w-full focus:outline-none mt-3 pb-3"
           ></textarea>
@@ -200,6 +201,7 @@
             <i class="text-lg text-[#1DA1F2] mr-4 far fa-smile"></i>
           </div>
           <button
+            type="submit"
             class="
               h-10
               px-4
@@ -217,6 +219,31 @@
             Tweet
           </button>
         </form>
+      </div>
+      <div class="flex flex-col-reverse">
+        <div
+          v-for="tweet in tweets"
+          :key="tweet"
+          class="w-full p-4 border-b hover:bg-[#E1E8ED] flex"
+        >
+          <div class="flex-none mr-4">
+            <img
+              src="../static/img/profile.png"
+              class="h-12 w-12 rounded-full flex-none"
+            />
+          </div>
+          <div class="w-full">
+            <div class="flex items-center w-full">
+              <p class="font-semibold">Asadbek</p>
+              <p class="text-sm text-[#657786] ml-2">@a.nosirjonov</p>
+              <p class="text-sm ml-2 text-[#657786]">1 sec</p>
+              <i class="fas fa-angle-down text-[#657786] ml-auto"></i>
+            </div>
+            <p>
+              {{ tweet.content }}
+            </p>
+          </div>
+        </div>
       </div>
       <div
         v-for="follow in following"
@@ -461,7 +488,17 @@ export default {
           like: '1,000,003',
         },
       ],
+      tweets: [{ content: 'It is so nice outside!' }],
+      tweet: { content: '' },
     }
+  },
+  methods: {
+    addNewTweet() {
+      let newTweet = {
+        content: this.tweet.content,
+      }
+      this.tweets.push(newTweet)
+    },
   },
 }
 </script>
