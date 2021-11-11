@@ -59,12 +59,12 @@
         </div>
         <!-- /Tweet btn -->
       </div>
-      <div>
-        <button class="flex items-center">
-          <img src="" alt="" class="w-12 h-12 rounded-full border border-[#E1E8ED]"/>
+      <div class="w-full">
+        <button class="flex items-center w-full hover:bg-[#F5F8FA] rounded-full p-2">
+          <img src="../static/img/profile.png" alt="" class="w-12 h-12 rounded-full border border-[#E1E8ED] object-cover"/>
           <div class="ml-4">
-            <p class="text-sm font-bold">Asadbek</p>
-            <p class="text-sm">@a.nosirjonov</p>
+            <p class="text-sm font-bold leading-tight">Asadbek</p>
+            <p class="text-sm leading-tight">@a.nosirjonov</p>
           </div>
           <i class="fas fa-angle-down ml-auto text-lg"></i>
         </button>
