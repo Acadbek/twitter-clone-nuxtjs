@@ -1,7 +1,14 @@
 <template>
-  <Tutorial/>
+  <div>
+    <Twit />
+  </div>
 </template>
 
 <script>
-export default {}
+import Twit from '../components/Twit.vue'
+export default {
+  components: {
+    Twit,
+  },
+}
 </script>
