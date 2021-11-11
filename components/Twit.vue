@@ -237,7 +237,7 @@
           Show more
         </button>
       </div>
-      <div class="w-full rounded-lg bg-[#F5F8FA]">
+      <div class="w-full rounded-lg bg-[#F5F8FA] my-4">
         <div class="p-3">
           <p class="text-lg font-bold">Who to Follow</p>
         </div>
@@ -259,7 +259,7 @@
             class="
               ml-auto
               text-sm text-[#1DA1F2]
-              py-1
+              !py-0.5
               px-4
               rounded-full
               border-2 border-[#1DA1F2]
@@ -311,7 +311,7 @@ export default {
       ],
       friends: [
         {
-          src: '../static/img/profile.png',
+          src: './static/img/profile.png',
           name: 'Elon Musk',
           handle: '@teslaBoy',
         },
