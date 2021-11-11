@@ -1,6 +1,7 @@
 <template>
   <div>
     <Twit />
+    <i class="fab fa-twitter"></i>
   </div>
 </template>
 
